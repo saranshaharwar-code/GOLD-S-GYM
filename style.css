@@ -81,6 +81,22 @@ nav.scrolled {
     gap: 10px;
 }
 
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-light);
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
 .nav-links {
     display: flex;
     gap: 30px;
@@ -568,14 +584,86 @@ footer {
     nav {
         padding: 15px 20px;
     }
-    .nav-links {
-        display: none; /* Add mobile menu if needed */
+
+    .menu-toggle {
+        display: block;
     }
+
+    .nav-join-btn {
+        display: none;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        height: 100vh;
+        background: rgba(5, 5, 5, 0.98);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: var(--transition);
+        z-index: 1000;
+        backdrop-filter: blur(20px);
+        border-left: 1px solid var(--primary-color);
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .nav-links a {
+        font-size: 1.5rem;
+        margin: 15px 0;
+    }
+
+    .hero-content h1 {
+        font-size: 3.5rem;
+    }
+
     .location {
         grid-template-columns: 1fr;
     }
+
     .about {
         flex-direction: column;
         text-align: center;
+        padding-top: 50px;
+    }
+
+    .about-image {
+        margin-top: 40px;
+    }
+
+    section {
+        padding: 60px 5%;
+    }
+
+    .section-header h2 {
+        font-size: 2.2rem;
+    }
+
+    .plan-card.popular {
+        transform: scale(1);
+        margin: 20px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2.8rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .plan-price {
+        font-size: 3rem;
     }
 }
